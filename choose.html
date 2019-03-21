@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>Linter | Pick your language: Spanish, German, Italian, English</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+body, html {
+    height: 100%;
+    width: 100%;
+	background-color: #1573b2;
+}
+	.german {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		-webkit-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+		-moz-transform: translate(-50%, -50%);
+		-o-transform: translate(-50%, -50%);
+		color: lightgray;
+		text-decoration: none;
+		border: 2px solid lightgray;
+		padding-top: 80px;
+		padding-bottom: 80px;
+		padding-right: 60px;
+		padding-left: 60px;
+		border-radius: 10px;
+		font-size: 20px;
+		transition: 0.4s;
+	}
+	.german:hover {
+		background-color: lightgray;
+		color: black;
+		cursor: pointer;
+	}
+</style>
+</head>
+<body>
+	<button onclick="display()" class="german">German</button>
+	<script>
+	function display() {
+		alert("Hi! \nSorry to inform you, but it is not possible to register accounts using Github Pages, as Github does not let you communicate back with the server, due to security reasons. You would need to register only so that we can collect analytics. For now, please go to the home page, and press login, using the username \"test\" and the password \"test\".")
+	}
+	</script>
+</body>
+</html>
