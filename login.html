@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login | Linter</title>
+<!-- CSS reset -->
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+html, body {
+	height: 100%;
+	width: 100%;
+	background-color: #DFDFDF;
+}
+</style>
+<!-- Everything else -->
+<style>
+	.platform {
+		background-color: white;
+		width: 44%;
+		height: 90%;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		-webkit-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+		-moz-transform: translate(-50%, -50%);
+		-o-transform: translate(-50%, -50%);
+		box-shadow: 0px 9px 17.5px 0px rgba(0,0,0,0.2);
+		border-radius: 10px; 
+	}
+	.title {
+		font-size: 30px;
+		position: absolute;
+		left: 50%;
+		-webkit-transform: translate(-50%);
+		transform: translate(-50%);
+		-moz-transform: translate(-50%);
+		-o-transform: translate(-50%);
+		top: 7%;
+	}
+	input {
+		border: 1px solid gray;
+		padding: 2px;
+		border-radius: 4px;
+		height: 25px;
+		padding-left: 7px;
+		width: 38%;
+		-webkit-transition: width 0.4s ease-in-out;
+  		transition: width 0.4s ease-in-out;
+	}
+	input:focus {
+		width: 70%;
+	}
+	form {
+		position: absolute;
+		top: 25%;
+		left: 10%;
+		width: 100%;
+		transition: 2s;
+	}
+	input, label {
+		display:block;
+		margin: 10px;
+	}
+	input:focus, input:hover {
+		border-color: black;
+	}
+	label {
+		font-size: 17px;
+	}
+	.sub {
+		border: 1px solid gray;
+		padding: 5px;
+		border-radius: 4px;
+		position: absolute;
+		left: 40%;
+		-webkit-transform: translate(-50%);
+		transform: translate(-50%);
+		-moz-transform: translate(-50%);
+		-o-transform: translate(-50%);
+		top: 200%;
+		width: 30%;
+		height: 22%;
+		cursor: pointer;
+		transition: 0.4s;
+	}
+	.sub:focus, .sub:hover {
+		border-color: black;
+		border-width: 2px;
+		border-radius: 8px;
+	}
+	#error {
+		border: 2px solid black;
+		border-radius: 5px;
+		width: 200px;
+		position: absolute;
+		left: 50%;
+		top: 26%;
+		visibility: hidden;
+		-webkit-transform: translate(-50%);
+		transform: translate(-50%);
+		-moz-transform: translate(-50%);
+		-o-transform: translate(-50%);
+	}
+	.tooltiptext {
+		font-size: 16px !important;
+		text-align: center;
+		width: 120px;
+		background-color: #555;
+		color: #fff;
+		text-align: center;
+		border-radius: 6px;
+		padding: 5px 0;
+		position: absolute;
+		z-index: 1;
+		margin-left: -60px;
+		opacity: 0;
+		font-family: sans-serif;
+		font-size: 100%;
+	}
+	.tooltiptext1 {		
+		bottom: 85%;
+		left: 30%;
+		transition: opacity .6s;
+	}
+	.tooltiptext2 {
+		bottom: 28%;
+		left: 30%;
+		transition: opacity .6s;
+	}
+	.tooltiptext::after {
+		content: "";
+		position: absolute;
+		top: 100%;
+		left: 50%;
+		margin-left: -5px;
+		border-width: 5px;
+		border-style: solid;
+		border-color: #555 transparent transparent transparent;
+	}
+</style>
+</head>
+<body>
+	<div class="platform"><p class="title">Login</p>
+		<form id="login" method="post" action="home.light.html" onsubmit="return PassValidate()">
+			<label for="user">Username</label>
+				<input type="text" id="user" name="username" placeholder="Username" autocomplete="off"><span class="tooltiptext1 tooltiptext">You must fill in this field</span><br>
+			<label for="pass">Password</label>
+				<input type="password" id="pass" name="password" placeholder="Password"><span class="tooltiptext2 tooltiptext">You must fill in this field</span>
+			<button type="submit" form="login" value="Submit" class="sub">Submit</button>
+		</form>
+		<div id="error"></div>
+	</div>
+	<script>
+	function PassValidate() {
+		var y = document.forms["login"]["password"].value;
+		var x = document.forms["login"]["username"].value;
+		var z = document.getElementsByClassName("tooltiptext1");
+		var w = document.getElementsByClassName("tooltiptext2");
+		if (x == "" && y == "") {
+			w[0].style.opacity = 1;
+			z[0].style.opacity = 1;
+			setTimeout(
+				function() {
+					w[0].style.opacity = 0;
+					z[0].style.opacity = 0;
+				}, 2400
+			);
+			return false;
+		}
+		if (y == "") {
+			w[0].style.opacity = 1;
+			setTimeout(
+				function() {
+					w[0].style.opacity = 0;
+				}, 2400
+			);
+			return false;
+		}
+		if (x == "") {
+			z[0].style.opacity = 1;
+			setTimeout(
+				function() {
+					z[0].style.opacity = 0;
+				}, 2400
+			);
+			return false;
+		}
+		if (x == "test" && y == "test") {
+			return true;
+		} else {
+			alert("Incorrect username or password");
+			return false;
+		}
+	}
+	</script>
+</body>
+</html>
